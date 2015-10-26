@@ -88,6 +88,8 @@ class FilmsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Film::destroy($id);
+
+        return redirect()->route('films.index')->with('flash_message', 'Film Deleted');
     }
 }
