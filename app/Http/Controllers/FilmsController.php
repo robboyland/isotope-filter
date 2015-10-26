@@ -85,7 +85,7 @@ class FilmsController extends Controller
 
         $film->save();
 
-        return redirect()->route('films.index');
+        return redirect()->route('films.index')->with('flash_message', 'Film Updated');
     }
 
     /**
