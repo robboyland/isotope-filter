@@ -1,5 +1,7 @@
 <?php
 
+use App\Film;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,7 +12,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::resource('films', 'FilmsController');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+
+//     $films = Film::all();
+
+//     return view('films.index', compact('films'));
+// });
+
+Route::get('/', 'FilmsController@index');
