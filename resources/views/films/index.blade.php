@@ -7,7 +7,7 @@
 
     <ol>
         @foreach ($films as $film)
-            <li>{{ $film->title }}</li>
+            <li><h2>{!! link_to_route('films.edit', $title = $film->title, $parameters = ['id' => $film->id], $attributes = []) !!}</h2></li>
         @endforeach
     </ol>
 
