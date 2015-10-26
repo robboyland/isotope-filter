@@ -14,11 +14,4 @@ use App\Film;
 */
 Route::resource('films', 'FilmsController');
 
-// Route::get('/', function () {
-
-//     $films = Film::all();
-
-//     return view('films.index', compact('films'));
-// });
-
 Route::get('/', 'FilmsController@index');
