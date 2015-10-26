@@ -4,7 +4,7 @@
     <h1>Update film details</h1>
     <hr>
 
-    {!! Form::open(['route' => 'films.store', 'method' => 'post']) !!}
+    {!! Form::open(['route' => ['films.update', $film->id], 'method' => 'put']) !!}
             <div class="form-group">
                 {!! Form::label('title', 'title') !!}
                 {!! Form::text('title', $film->title, ['class' => 'form-control']) !!}

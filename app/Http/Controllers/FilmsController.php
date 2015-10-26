@@ -77,7 +77,15 @@ class FilmsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $film = Film::find($id);
+
+        $film->title        = $request->input('title');
+        $film->release_date = $request->input('release_date');
+        $film->notes        = $request->input('notes');
+
+        $film->save();
+
+        return redirect()->route('films.index');
     }
 
     /**
