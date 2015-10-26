@@ -19,3 +19,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Film::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence($nbWords = 6),
+        'release_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'notes' => $faker->paragraph($nbSentences = 3),
+    ];
+});
