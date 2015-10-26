@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-    <h1>Add a film</h1>
+    <h1>Update film details</h1>
     <hr>
 
     {!! Form::open(['route' => 'films.store', 'method' => 'post']) !!}
@@ -21,7 +21,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::submit('add film', ['class' => 'btn btn-primary form-control']) !!}
+                {!! Form::submit('update film details', ['class' => 'btn btn-primary form-control']) !!}
             </div>
     {!! Form::close() !!}
 @stop
