@@ -11,7 +11,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::label('release_date', 'release_date') !!}
+                {!! Form::label('release_date', 'release date') !!}
                 {!! Form::text('release_date', $film->release_date, ['class' => 'form-control']) !!}
             </div>
 
