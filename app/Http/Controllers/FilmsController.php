@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Film;
+use App\Genre;
 
 class FilmsController extends Controller
 {
@@ -34,7 +35,12 @@ class FilmsController extends Controller
      */
     public function create()
     {
-        return view('films.create');
+        // $genres = DB::table('genres')
+        //                 ->orderBy('name', 'asc')
+        //                 ->lists('name','id');
+
+        $genres = Genre::orderBy('name', 'asc')->get();
+        return view('films.create', compact('genres'));
     }
 
     /**
@@ -45,7 +51,8 @@ class FilmsController extends Controller
      */
     public function store(Request $request)
     {
-        Film::create($request->all());
+        $film = Film::create($request->all());
+        $film->genres()->sync($request->input('genres'));
 
         return redirect()->route('films.index');
     }

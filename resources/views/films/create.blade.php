@@ -16,6 +16,16 @@
             </div>
 
             <div class="form-group">
+                <h2>genres</h2>
+
+                @foreach ($genres as $genre)
+                    <div><label>
+                    <input type="checkbox" name="genres[]" id="{{ $genre->id }}" value="{{ $genre->id }}">
+                    {{ $genre->name }}</label></div>
+                @endforeach
+            </div>
+
+            <div class="form-group">
                 {!! Form::label('notes', 'notes') !!}
                 {!! Form::textarea('notes', null, ['class' => 'form-control']) !!}
             </div>
