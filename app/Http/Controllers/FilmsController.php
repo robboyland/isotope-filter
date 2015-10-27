@@ -76,9 +76,21 @@ class FilmsController extends Controller
      */
     public function edit($id)
     {
-        $film = Film::find($id);
+        // $film = Film::find($id);
 
-        return view('films.edit', compact('film'));
+        $film = Film::with('genres')->where(['id' => $id])->first();
+
+        // all tags
+        $genres = Genre::all();
+
+        // tag ids that post has been assigned
+        $genreIds = [];
+        foreach($film->genres as $genre)
+        {
+            $genreIds[] = $genre->id;
+        }
+
+        return view('films.edit', compact('film', 'genres', 'genreIds'));
     }
 
     /**
@@ -97,6 +109,7 @@ class FilmsController extends Controller
         $film->notes        = $request->input('notes');
 
         $film->save();
+        $film->genres()->sync($request->input('genres'));
 
         return redirect()->route('films.index')->with('flash_message', 'Film Updated');
     }

@@ -16,6 +16,15 @@
             </div>
 
             <div class="form-group">
+                @foreach ($genres as $genre)
+                    <div class="checkbox">
+                    {!! Form::checkbox('genres[]', $genre->id, in_array($genre->id, $genreIds), ['class' => 'is_it_needed']) !!}
+                    {!! Form::label($genre->id, $genre->name) !!}
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="form-group">
                 {!! Form::label('notes', 'notes') !!}
                 {!! Form::textarea('notes', $film->notes, ['class' => 'form-control']) !!}
             </div>
