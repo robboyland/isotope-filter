@@ -1,1 +1,3 @@
 ul { list-style: none; }
+
+#isotope_filters li { display: inline-block; margin: 20px 10px 0 0; }
