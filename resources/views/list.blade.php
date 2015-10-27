@@ -13,7 +13,7 @@
     <ol id="isotope_container">
         @foreach ($films as $film)
             <li class="isotope_selector {{ genreCssString($film->genres) }}">
-                <h2>{{ $film->title }}</h2>
+                <h2>{{ $film->title }} </h2>
             </li>
         @endforeach
     </ol>

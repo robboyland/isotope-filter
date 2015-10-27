@@ -1,3 +1,8 @@
+body { font-family: 'Special Elite', cursive; }
+
 ul { list-style: none; }
 
 #isotope_filters li { display: inline-block; margin: 20px 10px 0 0; }
+
+#isotope_container li  { width: 100%; }
+#isotope_container li h2 { width: 101%; }
