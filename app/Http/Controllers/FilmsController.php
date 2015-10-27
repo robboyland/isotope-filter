@@ -76,14 +76,11 @@ class FilmsController extends Controller
      */
     public function edit($id)
     {
-        // $film = Film::find($id);
-
         $film = Film::with('genres')->where(['id' => $id])->first();
 
-        // all tags
         $genres = Genre::all();
 
-        // tag ids that post has been assigned
+        // genre ids that film has been assigned
         $genreIds = [];
         foreach($film->genres as $genre)
         {
