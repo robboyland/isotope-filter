@@ -23,8 +23,13 @@ $(window).load( function() {
     $('#isotope_filters li a').on('click', function() {
         var selector = $(this).data('filter');
         $container.isotope({
-        filter: selector
+            filter: selector
+        });
+
     });
 
+    $('#isotope_filters li a').click(function () {
+        $('#isotope_filters li a').css('text-decoration', 'none');
+        $(this).css('text-decoration', 'underline');
     });
 });
