@@ -24,7 +24,7 @@ Route::resource('films', 'FilmsController');
 Route::get('/', function () {
 
     $films = Film::orderBy('title', 'asc')->with('genres')->get();
-    $genres = Genre::all();
+    $genres = Genre::orderBy('name', 'asc')->get();
 
     return view('list', compact('films', 'genres'));
 });
